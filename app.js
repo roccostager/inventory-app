@@ -5,12 +5,13 @@ const app = express();
 const port = 3000;
 
 const path = require('node:path');
+const { getAllItems, insertItem } = require('./db/query');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.send('Hello, world!');
+app.get('/', async (req, res) => {
+    res.render('index', { items: await getAllItems() });
 })
 
 app.listen(port, error => {
