@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS items (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name TEXT,
+    description TEXT,
+    category TEXT
+);
